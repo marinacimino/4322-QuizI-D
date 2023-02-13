@@ -12,13 +12,24 @@ import csv
 
 #open the file
 
-
+infile = open("employee_data.csv", "r")
+employee = csv.reader(infile, delimiter=",")
+next(employee)
 
 
 #create an empty dictionary
-
+employee_dict = {}
+for x in employee:
+    name = x[1] + " " + x[2]
+    current_salary = x[5]
+    new_salary = float(current_salary) * 1.1
+    employee_dict[name] = {"New Salary": new_salary}
+    
 
 #use a loop to iterate through the csv file
+
+
+print(employee_dict)
 
 
     #check if the employee fits the search criteria
